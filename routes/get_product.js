@@ -7,6 +7,7 @@ router.post('/',async function(req, res, next) {
     let url = req.body.url;
     let provider = req.body.provider;
     console.log(url);
+    res.send("error");
     var result = {};
     if(url==="undefined"||provider==="undefined"){
         result={"Error":"missing request params"};
