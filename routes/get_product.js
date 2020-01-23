@@ -7,7 +7,7 @@ router.post('/',async function(req, res, next) {
     let url = req.body.url;
     let provider = req.body.provider;
     console.log(url);
-    res.send("error");
+   
     var result = {};
     if(url==="undefined"||provider==="undefined"){
         result={"Error":"missing request params"};
@@ -19,6 +19,7 @@ router.post('/',async function(req, res, next) {
            result = await finishLineScraper.newRequest(url);
            res.type('json').send(JSON.stringify(result, null, 2) + '\n');
        }catch (e) {
+            res.send({"error":e});
            console.log(e)
        }
 
