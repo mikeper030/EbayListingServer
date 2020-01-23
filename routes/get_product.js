@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var finishLineScraper = require('../scrapers/finishline_scraper');
+//var finishLineScraper = require('../scrapers/finishline_scraper');
 const cheerio = require('cheerio');
 const axios = require('axios');
 
