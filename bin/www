@@ -63,7 +63,7 @@ var server = http.createServer(app);
  */
 
 server.listen(port);
-proxyGenerator();
+//proxyGenerator();
 server.on('error', onError);
 server.on('listening', onListening);
 
