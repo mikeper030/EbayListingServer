@@ -3,7 +3,6 @@ const axios = require('axios');
 
 /* GET home page. */
 var httpsProxyAgent = require('https-proxy-agent');
-
 var user_agent_list = [
 
 
@@ -35,6 +34,7 @@ var user_agent_list = [
 const getDataFromUrl = async function (url) {
     var result={
         url:url,
+        img:"",
         sizes:[]
     };
 
@@ -49,20 +49,26 @@ const getDataFromUrl = async function (url) {
             headers:
                 {'User-Agent': user_agent_list[Math.floor(Math.random() * user_agent_list.length)]}
         };
-        console.log(config)
+       // console.log(config)
         const response = await axios.get(url);
 
         let $ = cheerio.load(response.data);
-        console.log($.html());
         $('#productSizes button').each(function (i,el) {
             var size = {};
             size.size = ($(el).text().trim());
             let classAttr = $(el).attr('class');
             size.available = !classAttr.includes('disabled');
             result.sizes.push(size);
-            console.log($(el).attr('class'));
-            console.log(($(el).text().trim()));
+            // console.log($(el).attr('class'));
+            // console.log(($(el).text().trim()));
         });
+
+        let style= $('#styleColors').children().eq(1).html().trim().replace("- ","");
+        let s =style.replace("&#xA0;","_");
+
+        let img="//images.finishline.com/is/image/FinishLine/"+s+"_P1?$default$&wid=671&bgc=eeeeee"
+        result.img=img;
+        console.log(s);
         return Promise.resolve(result);
 
     }catch(e) {

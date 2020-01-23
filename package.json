@@ -16,9 +16,11 @@
     "http-errors": "~1.6.3",
     "https-proxy-agent": "^4.0.0",
     "morgan": "~1.9.1",
+    "nightmare": "^3.0.2",
     "node-cron": "^2.0.3",
     "parser": "^0.1.4",
     "pug": "2.0.0-beta11",
+    "puppeteer": "^2.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5"
   }
