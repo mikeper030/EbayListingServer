@@ -17,7 +17,8 @@ router.post('/',async function(req, res, next) {
        try {
            console.log("processing finishline")
            result = await finishLineScraper.newRequest(url);
-           res.type('json').send(JSON.stringify(result, null, 2) + '\n');
+           res.send(result);
+//            res.type('json').send(JSON.stringify(result, null, 2) + '\n');
        }catch (e) {
             res.send({"error":e});
            console.log(e)
