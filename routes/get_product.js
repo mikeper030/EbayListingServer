@@ -14,7 +14,7 @@ router.post('/',async function(req, res, next) {
         res.send(result);
     }
     if (provider==="finishline"){
-        res.send("ok);
+        res.send("ok");
        try {
            console.log("processing finishline")
            result = await finishLineScraper.newRequest(url);
